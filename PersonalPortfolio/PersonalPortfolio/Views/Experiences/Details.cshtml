@@ -1,0 +1,66 @@
+﻿@model PersonalPortfolio.Models.Experience
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Experience</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ExperienceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExperienceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityHeld)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityHeld)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StateHeld)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StateHeld)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipHeld)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipHeld)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthsHeld)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthsHeld)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descriptionOfJob)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descriptionOfJob)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -197,8 +197,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EducationsController.cs" />
+    <Compile Include="Controllers\ExperiencesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PersonalInfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -272,6 +275,21 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\Educations\Create.cshtml" />
+    <Content Include="Views\Educations\Delete.cshtml" />
+    <Content Include="Views\Educations\Details.cshtml" />
+    <Content Include="Views\Educations\Edit.cshtml" />
+    <Content Include="Views\Educations\Index.cshtml" />
+    <Content Include="Views\Experiences\Create.cshtml" />
+    <Content Include="Views\Experiences\Delete.cshtml" />
+    <Content Include="Views\Experiences\Details.cshtml" />
+    <Content Include="Views\Experiences\Edit.cshtml" />
+    <Content Include="Views\Experiences\Index.cshtml" />
+    <Content Include="Views\PersonalInfo\Create.cshtml" />
+    <Content Include="Views\PersonalInfo\Delete.cshtml" />
+    <Content Include="Views\PersonalInfo\Details.cshtml" />
+    <Content Include="Views\PersonalInfo\Edit.cshtml" />
+    <Content Include="Views\PersonalInfo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

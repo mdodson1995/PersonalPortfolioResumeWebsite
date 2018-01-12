@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PersonalPortfolio.Models.Experience>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ExperienceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityHeld)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StateHeld)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipHeld)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthsHeld)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descriptionOfJob)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExperienceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityHeld)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StateHeld)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipHeld)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthsHeld)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descriptionOfJob)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
