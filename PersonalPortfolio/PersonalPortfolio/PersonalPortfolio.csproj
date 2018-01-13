@@ -287,7 +287,7 @@
     <Content Include="Views\PersonalInfo\Details.cshtml" />
     <Content Include="Views\PersonalInfo\Index.cshtml" />
     <Content Include="Views\PersonalInfo\PartialPersonal.cshtml" />
-    <Content Include="Views\PersonalInfo\PartialIndex.cshtml" />
+    <Content Include="Views\Home\PartialIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
