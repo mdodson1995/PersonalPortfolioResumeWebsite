@@ -19,6 +19,10 @@ namespace PersonalPortfolio.Controllers
         {
             return View(db.PersonalInfoes.ToList());
         }
+        public ActionResult PartialIndex()
+        {
+            return View();
+        }
 
         // GET: PersonalInfo/Details/5
         public ActionResult Details(int? id)
