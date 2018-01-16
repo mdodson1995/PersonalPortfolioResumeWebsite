@@ -35,5 +35,7 @@ namespace PersonalPortfolio.Models
         public System.Data.Entity.DbSet<PersonalPortfolio.Models.Experience> Experiences { get; set; }
 
         public System.Data.Entity.DbSet<PersonalPortfolio.Models.PersonalInfo> PersonalInfoes { get; set; }
+
+        public System.Data.Entity.DbSet<PersonalPortfolio.Models.example> examples { get; set; }
     }
 }

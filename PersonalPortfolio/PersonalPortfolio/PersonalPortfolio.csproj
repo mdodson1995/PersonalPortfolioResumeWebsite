@@ -198,6 +198,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EducationsController.cs" />
+    <Compile Include="Controllers\examplesController.cs" />
     <Compile Include="Controllers\ExperiencesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Education.cs" />
+    <Compile Include="Models\example.cs" />
     <Compile Include="Models\Experience.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -222,9 +224,13 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CIW.PNG" />
+    <Content Include="Content\DB.PNG" />
     <Content Include="Content\facebook.png" />
+    <Content Include="Content\jQueryCourse.png" />
     <Content Include="Content\linkedin.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\PHPCourse.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -291,6 +297,10 @@
     <Content Include="Views\PersonalInfo\Index.cshtml" />
     <Content Include="Views\PersonalInfo\PartialPersonal.cshtml" />
     <Content Include="Views\Home\PartialIndex.cshtml" />
+    <Content Include="Views\Home\PartialEducation.cshtml" />
+    <Content Include="Views\Home\PartialExperience.cshtml" />
+    <Content Include="Views\examples\Details.cshtml" />
+    <Content Include="Views\examples\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
