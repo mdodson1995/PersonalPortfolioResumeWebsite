@@ -31,10 +31,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Education", "Index", "Educations")</li>
+                    <li>@Html.ActionLink("Dashboard", "Index", "Home")</li>
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -45,6 +43,8 @@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <a href="https://www.facebook.com/Mathew.dodson95" target="_blank"><img src="~/Content/facebook.png" width="20" height="20" /></a>
+            <a href="https://www.linkedin.com/in/mathew-dodson-232910134/" target="_blank"><img src="~/Content/linkedin.png" width="20" height="20" /></a>
         </footer>
     </div>
 
