@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PersonalPortfolio.Models;
+using PagedList;
 
 namespace PersonalPortfolio.Controllers
 {
@@ -15,10 +16,58 @@ namespace PersonalPortfolio.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: examples
-        public ActionResult Index()
+        public ViewResult Index(string sortOrder, string searchString, string filterValue, int? pageNo)
         {
-            return View(db.examples.ToList());
+            ViewBag.CurrentSortOrder = sortOrder;
+            ViewBag.LastNameSortParm = String.IsNullOrEmpty(sortOrder) ? "dob" : "";
+            ViewBag.NameSortParm = sortOrder == "name" ? "name" : "name";
+
+            if (searchString != null)
+                pageNo = 1;
+            else
+                searchString = filterValue;
+
+            ViewBag.FilterValue = searchString;
+
+            var people = from s in db.examples
+                         select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                people = people.Where(s => s.name.Contains(searchString)
+                                       || s.dob.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+
+                case "name":
+                    people = db.examples.OrderBy(s => s.name);
+                    break;
+                case "dob":
+                    people = people.OrderBy(s => s.dob);
+                    break;
+                case "address":
+                    people = people.OrderBy(s => s.address);
+                    break;
+                case "city":
+                    people = people.OrderBy(s => s.city);
+                    break;
+                case "state":
+                    people = people.OrderBy(s => s.state);
+                    break;
+                case "zip":
+                    people = people.OrderBy(s => s.ZipCode);
+                    break;
+
+                default:
+                    people = people.OrderBy(s => s.id);
+                    break;
+            }
+
+            int sizeOfPage = 5;
+            int numberOfPage = (pageNo ?? 1);
+            return View(people.ToPagedList(numberOfPage, sizeOfPage));
         }
+
 
         // GET: examples/Details/5
         public ActionResult Details(int? id)

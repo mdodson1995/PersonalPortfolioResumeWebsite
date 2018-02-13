@@ -1,56 +1,84 @@
-﻿@model IEnumerable<PersonalPortfolio.Models.example>
+﻿@model PagedList.IPagedList<PersonalPortfolio.Models.example>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "Index";
 }
+<br />
+<br />
+<br />
+<h2>Pagination/Filter Example</h2>
 
-<h2>Index</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dob)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.city)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.state)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dob)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.city)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.state)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ZipCode)
-        </td>
+<div class="row col-md-10 col-md-offset-1">
+    <table class="table table-hover" data-page-lenth="10" cellspacing="10">
+        <thead>
+            <tr>
 
-    </tr>
-}
+                <th class="table-header">
+                    @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.LastNameSortParm, filterValue = ViewBag.FilterValue })
+                </th>
+                <th class="table-header">
+                    @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, filterValue = ViewBag.FilterValue })
+                </th>
+                <th class="table-header">
+                    Date of Birth
+                <th class="table-header">
+                    Address
+                </th>
+                <th class="table-header">
+                    City
+                </th>
+                <th class="table-header">
+                    State
+                </th>
+                <th class="table-header">
+                    Zip Code
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
 
-</table>
+                    <td>
+                        @Html.ActionLink(Html.DisplayFor(modelItem => item.id).ToString(), "Details", new { id = item.id }, new { @class = "table-link" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(Html.DisplayFor(modelItem => item.name).ToString(), "Details", new { id = item.id }, new { @class = "table-link" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(Html.DisplayFor(modelItem => item.dob).ToString(), "Details", new { id = item.id }, new { @class = "table-link" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(Html.DisplayFor(modelItem => item.address).ToString(), "Details", new { id = item.id }, new { @class = "table-link" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(Html.DisplayFor(modelItem => item.city).ToString(), "Details", new { id = item.id }, new { @class = "table-link" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(Html.DisplayFor(modelItem => item.state).ToString(), "Details", new { id = item.id }, new { @class = "table-link" })
+                    </td>
+                    <td>
+                        @Html.ActionLink(Html.DisplayFor(modelItem => item.ZipCode).ToString(), "Details", new { id = item.id }, new { @class = "table-link" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <div>
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, pageNo => Url.Action("Index", new
+   {
+       pageNo,
+       sortOrder = ViewBag.CurrentSortOrder,
+       filterValue = ViewBag.FilterValue
+   }))
+    </div>
+</div>
+
