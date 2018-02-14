@@ -9,10 +9,18 @@
 <br />
 <br />
 <h2>Pagination/Filter Example</h2>
+<div class="col-md-11 col-md-offset-1">
+    @using (Html.BeginForm("Index", "examples", FormMethod.Get, new { @class = "form form-inline" }))
+            {
+        <div class="input-group search-bar">
+            @Html.TextBox("searchString", null, new { @class = "form-control", @placeholder = "Search", @id = "searchInput" })
+            <div class="input-group-btn"><button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button></div>
+        </div>
+    }
+</div>
 
 
-
-<div class="row col-md-10 col-md-offset-1">
+<div class="row col-md-11 col-md-offset-1">
     <table class="table table-hover" data-page-lenth="10" cellspacing="10">
         <thead>
             <tr>

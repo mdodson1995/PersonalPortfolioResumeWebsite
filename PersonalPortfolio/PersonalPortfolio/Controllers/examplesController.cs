@@ -30,12 +30,13 @@ namespace PersonalPortfolio.Controllers
             ViewBag.FilterValue = searchString;
 
             var people = from s in db.examples
-                         select s;
+                           select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                 people = people.Where(s => s.name.Contains(searchString)
-                                       || s.dob.Contains(searchString));
+                                       || s.name.Contains(searchString));
             }
+        
             switch (sortOrder)
             {
 
