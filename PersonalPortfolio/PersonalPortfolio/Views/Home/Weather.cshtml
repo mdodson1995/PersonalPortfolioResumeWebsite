@@ -1,0 +1,44 @@
+﻿<script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script>
+    //json(openweather, kingsley)
+    $(function () {
+        var openWeather = "http://api.openweathermap.org/data/2.5/weather?zip=49649,us&units=imperial&appid=0efa11d10d243b4d4804fc1b991d942d";//gets the api key and url
+        $.getJSON(openWeather).done(function (data) { //function once api is recieved
+            console.log(data); //puts api data into console for viewing
+            $(function (index, weather) { //output for json into html page, id on html
+                var p = $("<p>").html("Temperature: " + Math.round(data.main.temp) + " degrees F "  + "<br/>" + "Description: " + data.weather[0].description.toUpperCase() + "<br/>" + "Humidity: " + data.main.humidity + " %");
+                p.appendTo("#kingsley");
+
+            });
+        })
+    });
+
+    //json(openweather, traverse city)
+    $(function () {
+        var openWeather = "http://api.openweathermap.org/data/2.5/weather?zip=49686,us&units=imperial&appid=0efa11d10d243b4d4804fc1b991d942d";//gets the api key and url
+        $.getJSON(openWeather).done(function (data) { //function once api is recieved
+            console.log(data); //puts api data into console for viewing
+            $(function (index, weather) { //output for json into html page, id on html
+                var p = $("<p>").html("Temperature: " + Math.round(data.main.temp) + " degrees F " + "<br/>" + "Description: " + data.weather[0].description.toUpperCase() + "<br/>" + "Humidity: " + data.main.humidity + " %");
+                p.appendTo("#traverseCity");
+
+            });
+        })
+    });
+
+
+
+</script>
+@{
+    ViewBag.Title = "Weather";
+}
+
+<h2>Weather</h2>
+<p>Here is the weather in local locations.</p>
+<h2>Traverse City</h2>
+<pre><code id="traverseCity"></code></pre>
+<h2>Kingsley</h2>
+<pre><code id="kingsley"></code></pre>
+
